@@ -1,0 +1,36 @@
+{
+    "records": [
+        {
+            "id": "rec0YUMlwm8h4Ygc2",
+            "fields": {
+                "Nombre Completo": "CONDOLEO ROBERTO EDUARDO ARMANDO",
+                "Estado": true,
+                "Fecha de Alta (from Datos Personales)": "2/9/2024",
+                "Aniversario MOBY (from Datos Personales)": "9/2/2025",
+                "Correo MOBY (from Datos Personales)": "rcondoleo@mobydigital.com",
+                "Teléfono Personal (from Datos Personales)": "68496919",
+                "Capacity": [
+                    {
+                        "Name": "G&L | ICBC Celulas | Perfiles Scrum Master | Scrum Master Senior | CONDOLEO ROBERTO EDUARDO ARMANDO",  
+                        "Perfiles": "Scrum Master Senior",
+                        "Fecha de Asginacion": "2024-09-02",
+                        "Nómina": [
+                            "rec0YUMlwm8h4Ygc2"
+                        ],
+                        "Proyectos": "G&L | ICBC Celulas | Perfiles Scrum Master",
+                        "Senority (de Perfiles)": "Scrum Master",
+                        "Asignacion": 1,
+                        "Referente (de Proyectos)": "Axel Zamora",
+                        "Cliente (from Oportunidades) (de Proyectos)": "G&L"
+                    }
+                ],
+                "Provincia (de Datos Personales)": [
+                    "Buenos Aires"
+                ],
+                "Calle": "Av. Peron",
+                "Altura": "945",
+                "Observaciones (de Datos Personales)": "4° C"
+            }
+        }
+    ]
+}
