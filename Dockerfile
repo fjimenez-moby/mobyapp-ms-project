@@ -13,6 +13,18 @@ COPY pom.xml .
 COPY .mvn .mvn
 COPY mvnw .
 
+# Verificar que las variables existen
+RUN echo "Configuring GitHub authentication..." && \
+    if [ -z "$GITHUB_TOKEN" ]; then \
+        echo "ERROR: GITHUB_TOKEN is not set"; \
+        exit 1; \
+    fi && \
+    if [ -z "$GITHUB_USERNAME" ]; then \
+        echo "ERROR: GITHUB_USERNAME is not set"; \
+        exit 1; \
+    fi && \
+    echo "GitHub username: $GITHUB_USERNAME"
+
 # Crear settings.xml con credenciales de GitHub para acceder a packages privados
 RUN mkdir -p /root/.m2 && \
     echo '<?xml version="1.0" encoding="UTF-8"?>' > /root/.m2/settings.xml && \
@@ -27,6 +39,10 @@ RUN mkdir -p /root/.m2 && \
     echo '    </server>' >> /root/.m2/settings.xml && \
     echo '  </servers>' >> /root/.m2/settings.xml && \
     echo '</settings>' >> /root/.m2/settings.xml
+
+# Verificar que settings.xml se creó
+RUN echo "Settings.xml created successfully" && \
+    cat /root/.m2/settings.xml | grep -v password
 
 # Descargar dependencias (forzar actualización desde GitHub)
 RUN mvn dependency:resolve -U -B
@@ -64,3 +80,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=60s --retries=3 \
     CMD wget --no-verbose --tries=1 --spider http://localhost:${PROJECT_PORT:-8085}/actuator/health || exit 1
 
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+
