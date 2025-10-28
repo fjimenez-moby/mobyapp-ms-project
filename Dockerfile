@@ -67,6 +67,7 @@ RUN echo "Settings.xml created successfully" && \
 
 # Copiar código fuente
 COPY src ./src
+RUN mvn dependency:get -Dartifact=io.github.elcolora3x:libreriaclasescomunes:1.3 -X
 
 # Compilar la aplicación (esto descarga dependencias de GitHub automáticamente)
 RUN mvn clean package -DskipTests
