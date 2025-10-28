@@ -6,7 +6,8 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.mobydigital.academy.mobyapp.commons.dto.ProjectDTO;
+//import com.mobydigital.academy.mobyapp.commons.dto.ProjectDTO;
+import coms.dto.ProjectDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
