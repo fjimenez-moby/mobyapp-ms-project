@@ -65,11 +65,13 @@ RUN mkdir -p /root/.m2 && \
 RUN echo "Settings.xml created successfully" && \
     cat /root/.m2/settings.xml | grep -v password
 
+# Descargar dependencias (forzar actualización desde GitHub)
+RUN mvn dependency:resolve -U -B
+
 # Copiar código fuente
 COPY src ./src
-RUN mvn dependency:get -Dartifact=io.github.elcolora3x:libreriaclasescomunes:1.3 -X
 
-# Compilar la aplicación (esto descarga dependencias de GitHub automáticamente)
+# Compilar la aplicación
 RUN mvn clean package -DskipTests
 
 # Stage 2: Runtime
@@ -99,5 +101,4 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=60s --retries=3 \
     CMD wget --no-verbose --tries=1 --spider http://localhost:${PROJECT_PORT:-8085}/actuator/health || exit 1
 
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
-
 
