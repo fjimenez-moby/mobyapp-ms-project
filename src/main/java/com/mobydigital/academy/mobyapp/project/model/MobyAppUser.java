@@ -1,13 +1,15 @@
 package com.mobydigital.academy.mobyapp.project.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.mobydigital.academy.mobyapp.commons.dto.*;
+//import com.mobydigital.academy.mobyapp.commons.dto.*;
+import coms.dto.*;
 import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.mobydigital.academy.mobyapp.commons.dto.ProjectDTO;
+//import com.mobydigital.academy.mobyapp.commons.dto.ProjectDTO;
+import coms.dto.ProjectDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,7 +38,7 @@ public class MobyAppUser {
     @JsonProperty("Localidad")
     private LocalityDTO locality;
 
-    @JsonProperty("TecnologÃ­a Actual")
+    @JsonProperty("Tecnología Actual")
     private String technologies; //si se almacena de otra forma, hay que cambiar el tipo de dato
 
     @JsonProperty("Proyectos")
